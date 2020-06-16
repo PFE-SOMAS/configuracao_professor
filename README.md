@@ -1,6 +1,6 @@
 ## Tutorial para configuração do notebook do professor.
 
-Este tutorial foi feito para o sistema operacional Ubuntu 18.04, e a máquina precisa se chamar "professor". (Caso a máquina tenha outro nome, será necessário trocar todas as ocorrências da palavra "professor" no script de instalação do notebook do professor, no script de instalação da Raspberry Pi/Labrador do aluno e nas configurações dos atalhos criados para o W2Schools e o VSCode).
+Este tutorial foi feito para o sistema operacional Ubuntu 18.04, e a máquina precisa se chamar "professor". (Caso a máquina tenha outro nome, será necessário trocar todas as ocorrências da palavra "professor" no script de instalação do notebook do professor, no script de instalação da Raspberry Pi/Labrador do aluno e nas configurações dos atalhos criados para o W3Schools e o VSCode).
 Para que tudo seja configurado corretamente, é importante que a máquina do professor seja configurada primeiro e a Raspberry Pi/Labrador seja configurado depois. É importante também que ambas as máquinas estejam conectadas na mesma rede Wifi.
 
 ### Fixando IP
