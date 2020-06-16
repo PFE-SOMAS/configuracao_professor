@@ -1,6 +1,6 @@
 ## Tutorial para configuração do notebook do professor.
 
-Este tutorial foi feito para o sistema operacional Ubuntu 18.04, e a máquina precisa se chamar "professor". (Caso a máquina tenha outro nome, será necessário trocar todas as ocorrências da palavra "professor" no script de instalação do notebook do professor, no script de instalação da Raspberry Pi/Labrador do aluno e nas configurações dos atalhos criados para o W3Schools e o VSCode).
+Este tutorial foi feito para o sistema operacional Ubuntu 18.04, e a máquina precisa se chamar "professor" (Caso a máquina tenha outro nome, será necessário trocar todas as ocorrências da palavra "professor" no script de instalação do notebook do professor, no script de instalação da Raspberry Pi/Labrador do aluno e nas configurações dos atalhos criados para o W3Schools e o VSCode).
 Para que tudo seja configurado corretamente, é importante que a máquina do professor seja configurada primeiro e a Raspberry Pi/Labrador seja configurado depois. É importante também que ambas as máquinas estejam conectadas na mesma rede Wi-fi.
 
 ### Fixando IP
@@ -26,8 +26,7 @@ Na aba IPv4 selecione o método "Manual". No campo "Máscara de Rede" adicione o
 
 ### Alterando a permissão e executando o script de instalação.
 
-Após copiar ou baixar o script de instalação no notebook do professor,
-abra o script em algum editor de texto de sua preferência e troque os valores das constantes "CLASSES" (valor recomendado: 17000) e "IMAGES" (valor recomendado: 20). Estas constantes estão na 4ª e 5ª linhas do script, respectivamente.
+Após copiar ou baixar o script de instalação no notebook do professor, abra o script em algum editor de texto de sua preferência e troque os valores das constantes "CLASSES" (valor recomendado: 17000) e "IMAGES" (valor recomendado: 20). Estas constantes estão na 4ª e 5ª linhas do script, respectivamente.
 Em seguida, navegue com o seu terminal até o diretório onde o arquivo se encontra e execute o comando a seguir:
 
 ```console
@@ -74,11 +73,11 @@ E para criar o atalho do VSCode, primeiramente execute o comando a seguir no ter
 code-server --auth none
 ```
 
-Abra o navegador web Google Chrome e vá para o endereço "0.0.0.0:8080", clique no botão com três pontos no navegador, clique em "Mais ferramentas" no menu drop-down que abrir e em seguida clique em criar atalho, como mostra a imagem a seguir.
+Abra o navegador web Google Chrome e vá para o endereço "0.0.0.0:8080", clique no botão com três pontos no navegador, clique em "Mais ferramentas" no menu drop-down que abrir e em seguida clique em "Criar atalho", como mostra a imagem a seguir.
 
 ![Criar_atalho_pelo_chrome](Imagens/atalho_vscode.png "Criar atalho para VSCode")
 
-Clique em criar na janela de confirmação que aparecer, e um arquivo novo irá aparecer na sua área de trabalho. 
+Clique em "Criar" na janela de confirmação que aparecer, e um arquivo novo irá aparecer na sua área de trabalho. 
 Edite este arquivo com o editor de texto da sua preferência, alterando-o para que as categorias "Encoding", "Name", "Comment", "Icon" e "Name[pt_BR]" fiquem iguais as do arquivo VSCode.desktop deste repositório GIT. As outras categorias devem permanecer inalteradas.
 
 Teste cada um dos atalhos para verificar se eles funcionarão como o esperado (O atalho do VSCode apenas funcionará caso o code-server estiver sendo executado no terminal).
@@ -89,7 +88,7 @@ A área de trabalho do notebook do professor deverá se parecer com a imagem a s
 
 ### Utilizando o VSCode
 
-Para utilizar o Code Server na máquina do professor, é necessário executar o comando do code-server no terminal e abrir o atalho do VSCode criado na Área de Trabalho. Para possibilitar que os alunos utilizem o VSCode nas máquinas deles, é necessário que o comando do Code Server esteja rodando no terminal da máquina do professor, apenas desta forma os alunos poderão se conectar.
+Para utilizar o Code Server na máquina do professor, é necessário executar o comando do code-server no terminal e abrir o atalho do VSCode criado na Área de Trabalho. Para possibilitar que os alunos utilizem o VSCode nas máquinas deles, também é necessário que o comando do Code Server esteja rodando no terminal da máquina do professor, apenas desta forma os alunos poderão se conectar.
 
 O comando que precisa ser executado na máquina do professor para possibilitar a utilização do code-server na própria máquina ou no kit-aluno é o comando a seguir.
 
