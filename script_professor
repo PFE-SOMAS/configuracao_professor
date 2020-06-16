@@ -1,0 +1,76 @@
+#!/bin/bash
+#Script de Instalacao do notebook do professor. Para funcionar, o usuário precisa se chamar "professor" e o Sistema Operacional precisa estar em português, por causa do nome das pastas.
+
+CLASSES=17000
+IMAGES=10
+
+cd ~/
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt install python -y
+python --version
+sudo apt install python3 -y
+python3 --version
+sudo apt install git -y
+git --version
+
+#Google Chrome
+cd Downloads
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo chmod 777 google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb -y
+cd ~/
+
+#SSHFS
+sudo apt-get install openssh-server ii -y
+sudo apt-get install sshfs -y
+mkdir SOMAS
+sudo chmod 777 SOMAS
+cat /etc/group | grep 'fuse'
+sudo groupadd fuse
+sudo usermod -a -G fuse professor
+
+#Code-Server
+sudo apt install curl -y
+curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run
+curl -fsSL https://code-server.dev/install.sh | sh
+code-server --install-extension ms-python.python
+
+#Wallpaper e atalhos
+cd Imagens/
+curl -O https://i.ibb.co/51JC6BQ/wallpaper.png
+curl https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1024px-Visual_Studio_Code_1.35_icon.svg.png > ~/Imagens/VSCode.png
+curl https://i.ya-webdesign.com/images/google-photos-icon-png-3.png > ~/Imagens/google.png
+curl https://lh3.googleusercontent.com/i-ij7KM2pFUUpFE31QAUDXg5mzGFNbm16S4tjmg2ZyuhCGLgNJ8oXJRbq7ysh6LoZg > ~/Imagens/w3schools.png
+sudo chmod 777 VSCode.png google.png wallpaper.png w3schools.png
+gsettings set org.gnome.desktop.background picture-uri file:///home/professor/Imagens/wallpaper.png
+cd ~/
+
+#W3Schools
+cd SOMAS
+mkdir Pesquisar
+sudo chmod 777 Pesquisar
+cd Pesquisar
+git clone https://github.com/PFE-SOMAS/w3schools
+sudo chmod 777 w3schools
+sudo chmod 777 w3schools/*
+cd ~/
+
+#Banco de Imagens
+sudo apt-get install python-pip -y
+sudo apt-get install python3-pip -y
+pip3 install numpy
+pip3 install googletrans
+git clone https://github.com/PFE-SOMAS/banco_de_imagens
+sudo chmod 777 banco_de_imagens
+cd SOMAS
+mkdir Banco\ de\ Imagens
+cd ~/banco_de_imagens
+sudo chmod 777 *
+sudo chmod 777 */*
+sudo chmod 777 */*/*
+time python3 down.py -data_root data_root_folder -number_of_classes $CLASSES -images_per_class $IMAGES
+cd ~/
+cp -a banco_de_imagens/data_root_folder/imagenet_images/. SOMAS/Banco\ de\ Imagens/
+sudo chmod 777 SOMAS/Banco\ de\ Imagens
+sudo chmod 777 SOMAS/Banco\ de\ Imagens/*
